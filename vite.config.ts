@@ -14,13 +14,13 @@ const commonPlugins = [
       "icons/apple-touch-icon-180x180.png",
     ],
     workbox: {
-      // Exclude all files in apps directory from beeing intercepted
-      // by the service worker
-      navigateFallbackDenylist: [/^\/apps/],
+      // Exclude all files in apps/ and unrestricted/ directories from
+      // beeing intercepted by the service worker
+      navigateFallbackDenylist: [/^\/apps/, /^\/unrestricted/],
 
       // Define files to be pre-cached (all except the settings files
       // & the apps dir)
-      globIgnores: ["apps/**/*", "settings*.js"],
+      globIgnores: ["apps/**/*", "settings*.js", "unrestricted/**/*"],
       globPatterns: ["**/*{js,css,html,ico,png,svg,woff}"],
     },
     manifest: {
